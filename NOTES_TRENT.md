@@ -66,6 +66,12 @@ See `git diff v0.8 v0.9`
 >>> Sometimes it is desirable to work with more than one application
 >>> Best Example: Unit tests that need applications with different configurations.
 
+##### SPECIAL NOTE:
+
+Having app blueprints allows you to have a really elegant test setup and teardown.
+
+##### Howto get the Blueprint working (see `git diff v0.9 v.10` for exact code)
+
 We need to get rid of app because it will exist outside the context of the controller.
 
 Now we can no longer reference app.  
@@ -82,5 +88,11 @@ To create an app you now call create_app, pass an application name, and get the 
 SQLAlchemy needs the models in __init__.py because it introspects on the app.
 You can miss this and maybe the models get imported elsewhere but that is sloppy.
 
+
+### 10. Creating an API Package (tag: v0.11) - Turn api.py into a package.
+
+This is a simple step, make an api folder and break the components of api.py down into the 3 files/modules: tokens, messages, users.
+
+tokens, messages, users become modules inside of the api package.
 
 
