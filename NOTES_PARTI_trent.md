@@ -5,6 +5,8 @@ Notes from Miguel Grinberg's talk on making a production flask app.
 
 PyCon 2016 - 20160528 0900 PST
 
+Presentation URL:
+
 
 ### 1. Move utility functions to utils.py (tag: v0.2)
 
