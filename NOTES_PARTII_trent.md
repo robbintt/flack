@@ -151,6 +151,31 @@ Javascript client: socket.emit(). See slides.
 
 #### Even more Socket.IO.  We can now only use gevent or eventlet.
 
+See the events.py module `git diff v0.14 v0.15`, added to manage events.
+
+I'm pretty far afield of things I have actually done at this point so my thoughts aren't very helpful.
+
+This code is starting to look a ton like django. However, I don't think Django has async built in either, so maybe this is a limit for out-of-the-box django as well. More research needed.
+
+Need an auxiliary wsgi process for socketio. There is a second wsgi_aux.py or something in the source.
+
+Miguel used eventlet.monkey_patch() to replace a bunch of stuff with eventlet counterparts. This seems pretty specific, better know what you are doing and read the monkey patch code.
+
+`manage.py runserver` needs socketio stuff.  Socketio needs socketio.run, rather than app.run, so this gets added in. 
+
+Also see tests. socketio has its own test client.
+
+Finally nginx has requirements for load balancing. Nginx option "sticky sessions"
+
+Grep the flack.conf in the nginx folder for `ip_hash` and read about this nginx option. Socketio is stateful and rest APIs are stateless so this option is necessary.
+
+
+#### Flask-SocketIO
+
+- Miguel's project
+- Pure python, translation of the Socket.IO node project for flask.
+
+
 
 
 
