@@ -114,4 +114,20 @@ For quick setup `redis` works with Celery.
 Celery needs to be available in __init__.py for the same reason as the model. Flask uses the context apparently.  There must be something else since flask doesn't really 'expect' celery.  Maybe celery is loaded up in the app then refers to stuff.. Still seems a little circular.
 
 
+#### Websocket - clients must 'poll' to stay up to date... we need to use 'server-push' to reduce load when new stuff happens.
+
+This "server-push" websocket model will reduce load, removing all redundant quests.
+
+The previous version used 2 requests per second per client just to stay up to date.
+
+Options:
+1. Streaming
+2. Long-polling
+3. WebSocket
+4. Socket.IO (long-polling + WebSocket)
+
+One of Miguel Grinberg's Posts using Streaming (1): http://blog.miguelgrinberg.com/post/video-streaming-with-flask
+
+
+
 
