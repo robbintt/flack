@@ -4,7 +4,7 @@ Notes from Miguel Grinberg's talk on making a production flask app.
 
 PyCon 2016 - 20160528 0900 PST
 
-Presentation URL:
+Presentation URL: Miguel will put a URL in the github readme and tweet the link.
 
 
 ### Scaling Web Servers
@@ -177,5 +177,7 @@ Grep the flack.conf in the nginx folder for `ip_hash` and read about this nginx 
 
 
 
+##### Questions / Notes
 
+- Flask has a Python profiler.
 
