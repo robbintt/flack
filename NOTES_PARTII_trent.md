@@ -138,13 +138,13 @@ HTML5 Standard. Not HTTP anymore. Both connections can write to the other side a
 ##### SocketIO
 written in JS. Node.js service. SocketIO Protocol supports WebSocket and falls aback to long-polling if WebSocket isn't supported by the client.
 
-Type 1:
+##### Type 1:
 ==========
 
 Python client: use socketio.emit class in a push_model method.  See slides.
 Javascript server: socketio node.js service
 
-Type 2:
+##### Type 2:
 ==========
 
 Python Server: @socketio.on() decorator
