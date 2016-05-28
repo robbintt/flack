@@ -114,7 +114,7 @@ For quick setup `redis` works with Celery.
 Celery needs to be available in __init__.py for the same reason as the model. Flask uses the context apparently.  There must be something else since flask doesn't really 'expect' celery.  Maybe celery is loaded up in the app then refers to stuff.. Still seems a little circular.
 
 
-#### Websocket - clients must 'poll' to stay up to date... we need to use 'server-push' to reduce load when new stuff happens.
+#### Websocket (tag: v0.15) - clients must 'poll' to stay up to date... we need to use 'server-push' to reduce load when new stuff happens.
 
 This "server-push" websocket model will reduce load, removing all redundant quests.
 
@@ -138,15 +138,20 @@ HTML5 Standard. Not HTTP anymore. Both connections can write to the other side a
 ##### SocketIO
 written in JS. Node.js service. SocketIO Protocol supports WebSocket and falls aback to long-polling if WebSocket isn't supported by the client.
 
-__Type 1:__
+Type 1:
+==========
 
 Python client: use socketio.emit class in a push_model method.  See slides.
 Javascript server: socketio node.js service
 
-__Type 2:__
+Type 2:
+==========
 
 Python Server: @socketio.on() decorator
 Javascript client: socket.emit(). See slides.
+
+
+#### Even more Socket.IO.  We can now only use gevent or eventlet.
 
 
 
