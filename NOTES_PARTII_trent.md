@@ -80,7 +80,7 @@ Flack example: rendering posts from markdown to HTML
 Solution: Offload CPU intensive requests to auxiliary threads or processes to keep the server unblocked.  Rephrased: make CPU intensive requests asynchronous.
 
 
-#### Asynchronous HTTP Requests:
+#### Asynchronous HTTP Requests (tag: v0.13)
 
 1. Request starts background work, gives a status 202.
 2. Goes back to listening requests.
@@ -88,8 +88,30 @@ Solution: Offload CPU intensive requests to auxiliary threads or processes to ke
 4. Request to status URL returns 202 while the request is still in progress.
 5. When complete, (see presentation for details)
 
-There is a decorator for this in flask.... @async decorator.
+There is a decorator for this in `flack`, migue's app.... @async decorator.
 
 That's all that is necessary!!!  This is almost too easy.
+
+If you `git diff v0.12 v0.13` and view the tasks module, you can see async implemenation. 
+
+note that `request.environ` has environmental information to build a request object.
+
+This way miguel can build his own request object.
+
+Miguel uses threading here, I think this won't matter because the threads are being used inside of a single request.
+
+We went into great detail about the `@async` decorator code.  Miguel mentioned maybe he should test it more and build a flask extension out of it. Probably production ready but definitely not widely tested.
+
+Async really gets into the guts of flask and does a lot of stuff flask does manually building the response etc. it looks good but it just isn't vetted and I don't know enough flask futs to vet it.
+
+
+#### Celery Workers (tag: v0.14)
+
+There's a wrapper in `manage.py`. Celery is integrated into the previous async section.
+
+For quick setup `redis` works with Celery.
+
+Celery needs to be available in __init__.py for the same reason as the model. Flask uses the context apparently.  There must be something else since flask doesn't really 'expect' celery.  Maybe celery is loaded up in the app then refers to stuff.. Still seems a little circular.
+
 
 
