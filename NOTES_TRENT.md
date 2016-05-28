@@ -1,5 +1,5 @@
 
-## Production Ready Flask App
+## Production Ready Flask App - Part I
 
 Notes from Miguel Grinberg's talk on making a production flask app.
 
@@ -66,11 +66,11 @@ See `git diff v0.8 v0.9`
 >>> Sometimes it is desirable to work with more than one application
 >>> Best Example: Unit tests that need applications with different configurations.
 
-##### SPECIAL NOTE:
+#### SPECIAL NOTE:
 
 Having app blueprints allows you to have a really elegant test setup and teardown.
 
-##### Howto get the Blueprint working (see `git diff v0.9 v.10` for exact code)
+#### Howto get the Blueprint working (see `git diff v0.9 v.10` for exact code)
 
 We need to get rid of app because it will exist outside the context of the controller.
 
