@@ -126,7 +126,27 @@ Options:
 3. WebSocket
 4. Socket.IO (long-polling + WebSocket)
 
+##### Streaming
 One of Miguel Grinberg's Posts using Streaming (1): http://blog.miguelgrinberg.com/post/video-streaming-with-flask
+
+##### Long polling 
+client asks 'is there anything new?' but the server doesn't respond right away.  it waits maybe 10 seconds because nothing happened. it does block the thread but it doesn't respond until something changes or until the long poll times out. A new one can then be generated.
+
+##### WebSocket 
+HTML5 Standard. Not HTTP anymore. Both connections can write to the other side at any time. Any side can write/read at any time.
+
+##### SocketIO
+written in JS. Node.js service. SocketIO Protocol supports WebSocket and falls aback to long-polling if WebSocket isn't supported by the client.
+
+__Type 1:__
+
+Python client: use socketio.emit class in a push_model method.  See slides.
+Javascript server: socketio node.js service
+
+__Type 2:__
+
+Python Server: @socketio.on() decorator
+Javascript client: socket.emit(). See slides.
 
 
 
