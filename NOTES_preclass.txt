@@ -3,6 +3,9 @@ SATURDAY 9 A.M.–12:20 P.M.
 FLASK AT SCALE
 MIGUEL GRINBERG
 
+Course Repo:
+git@github.com:miguelgrinberg/flack.git
+
 Audience level:
 Intermediate
 Category:
